@@ -14,7 +14,6 @@ namespace InventarioTI.Controllers
         private static string userName = "postgres";
         private static string password = "Pg123";
         private static string databaseName = "gestti";
-        private NpgsqlConnection pgsqlConnection = null;
         private string connString = null;
         public ConnectBd()
         {

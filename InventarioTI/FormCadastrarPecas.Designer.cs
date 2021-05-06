@@ -29,7 +29,7 @@ namespace InventarioTI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNomePeca = new System.Windows.Forms.TextBox();
             this.txtModeloPeca = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -37,13 +37,13 @@ namespace InventarioTI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgvPecas = new System.Windows.Forms.DataGridView();
             this.btnAddPeca = new System.Windows.Forms.Button();
             this.btnEditarPeca = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
+            this.txtMarcaPeca = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPecas)).BeginInit();
@@ -121,15 +121,6 @@ namespace InventarioTI
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // textBox1
-            // 
-            this.textBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.textBox1.Location = new System.Drawing.Point(105, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(359, 23);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "marca peça";
-            // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(105, 114);
@@ -167,14 +158,14 @@ namespace InventarioTI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPecas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPecas.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPecas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPecas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPecas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPecas.Location = new System.Drawing.Point(104, 143);
             this.dgvPecas.MultiSelect = false;
@@ -203,6 +194,7 @@ namespace InventarioTI
             this.btnAddPeca.Text = "cadastrar";
             this.btnAddPeca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddPeca.UseVisualStyleBackColor = false;
+            this.btnAddPeca.Click += new System.EventHandler(this.btnAddPeca_Click);
             this.btnAddPeca.MouseLeave += new System.EventHandler(this.btnAddPeca_MouseLeave);
             this.btnAddPeca.MouseHover += new System.EventHandler(this.btnAddPeca_MouseHover);
             // 
@@ -224,7 +216,6 @@ namespace InventarioTI
             this.btnEditarPeca.Text = "editar";
             this.btnEditarPeca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditarPeca.UseVisualStyleBackColor = false;
-            this.btnEditarPeca.Click += new System.EventHandler(this.btnEditarPeca_Click);
             this.btnEditarPeca.MouseLeave += new System.EventHandler(this.btnEditarPeca_MouseLeave);
             this.btnEditarPeca.MouseHover += new System.EventHandler(this.btnEditarPeca_MouseHover);
             // 
@@ -247,19 +238,30 @@ namespace InventarioTI
             this.btnDeletar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDeletar.UseVisualStyleBackColor = false;
             // 
+            // txtMarcaPeca
+            // 
+            this.txtMarcaPeca.ForeColor = System.Drawing.Color.DarkGray;
+            this.txtMarcaPeca.Location = new System.Drawing.Point(106, 80);
+            this.txtMarcaPeca.Name = "txtMarcaPeca";
+            this.txtMarcaPeca.Size = new System.Drawing.Size(359, 23);
+            this.txtMarcaPeca.TabIndex = 11;
+            this.txtMarcaPeca.Text = "marca peça";
+            this.txtMarcaPeca.Enter += new System.EventHandler(this.txtMarcaPeca_Enter);
+            this.txtMarcaPeca.Leave += new System.EventHandler(this.txtMarcaPeca_Leave);
+            // 
             // FormCadastrarPecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(961, 676);
+            this.Controls.Add(this.txtMarcaPeca);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnEditarPeca);
             this.Controls.Add(this.btnAddPeca);
             this.Controls.Add(this.dgvPecas);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtModeloPeca);
             this.Controls.Add(this.txtNomePeca);
@@ -284,12 +286,12 @@ namespace InventarioTI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dgvPecas;
         private System.Windows.Forms.Button btnAddPeca;
         private System.Windows.Forms.Button btnEditarPeca;
         private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.TextBox txtMarcaPeca;
     }
 }

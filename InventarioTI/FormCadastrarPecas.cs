@@ -79,6 +79,7 @@ namespace InventarioTI
         private void btnAddPeca_MouseHover(object sender, EventArgs e)
         {
             btnAddPeca.BackColor = ColorTranslator.FromHtml("#00a000");
+           
         }
 
         private void btnAddPeca_MouseLeave(object sender, EventArgs e)
@@ -96,9 +97,41 @@ namespace InventarioTI
             btnEditarPeca.BackColor = Color.Gold;
         }
 
-        private void btnEditarPeca_Click(object sender, EventArgs e)
-        {
 
+        private void btnAddPeca_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.txtMarcaPeca.Text);
+
+            try
+            {
+                queryPecasAll = @"SELECT * FROM ST_SELECTALLPECAS()";
+                dgvPecas.DataSource = null;
+                dgvPecas.DataSource = conn.executeDataTable(queryPecasAll);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex);
+            }
+
+        }
+
+        private void txtMarcaPeca_Enter(object sender, EventArgs e)
+        {
+            if (txtMarcaPeca.Text == "marca peça")
+            {
+                txtMarcaPeca.Text = null;
+                txtMarcaPeca.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtMarcaPeca_Leave(object sender, EventArgs e)
+        {
+            if (txtMarcaPeca.Text == "")
+            {
+                txtMarcaPeca.Text = "marca peça";
+                txtMarcaPeca.ForeColor = Color.DarkGray;
+            }
         }
     }
 }
