@@ -106,7 +106,7 @@ namespace InventarioTI
 
 
         private void btnAddPeca_Click(object sender, EventArgs e)
-        { 
+        {
 
             try
             {
@@ -117,10 +117,17 @@ namespace InventarioTI
                 unidadeCapacidade = cbUnidaeMedida.Text;
 
 
+                if ("nome da peça" == nomePeca) { MessageBox.Show("Por favor Digitar o " + nomePeca);  return; }
+                if ("modelo peça" == modeloPeca) { MessageBox.Show("Por favor Digitar o " + modeloPeca);  return; }
+                if ("marca peça" == marcaPeca) { MessageBox.Show("Por favor Digitar a " + marcaPeca);   return; }
+  
+
+
                 conn.InserirRegistros(nomePeca, marcaPeca, modeloPeca, capacidade, unidadeCapacidade);
 
                 MessageBox.Show("Peça inserido com sucesso");
-              
+                atualizarDataGridPecas();
+
             }
 
             catch (Exception ex)
