@@ -15,6 +15,8 @@ namespace InventarioTI.Controllers
         private static string password = "Pg123";
         private static string databaseName = "gestti";
         private string connString = null;
+      
+
         public ConnectBd()
         {
             connString = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
@@ -55,6 +57,68 @@ namespace InventarioTI.Controllers
             }
 
             return dt;
+        }
+
+        public void InserirRegistros(string nomePeca,
+                                     string marcaPeca,
+                                     string modeloPeca,
+                                     decimal capacidade,
+                                     string unidadeCapacidade)
+        {
+            if (string.IsNullOrEmpty(nomePeca))
+            {
+                throw new ArgumentException($"'{nameof(nomePeca)}' não pode ser nulo nem vazio.", nameof(nomePeca));
+            }
+
+            if (string.IsNullOrEmpty(marcaPeca))
+            {
+                throw new ArgumentException($"'{nameof(marcaPeca)}' não pode ser nulo nem vazio.", nameof(marcaPeca));
+            }
+
+            if (string.IsNullOrEmpty(modeloPeca))
+            {
+                throw new ArgumentException($"'{nameof(modeloPeca)}' não pode ser nulo nem vazio.", nameof(modeloPeca));
+            }
+
+            if (string.IsNullOrEmpty(unidadeCapacidade))
+            {
+                throw new ArgumentException($"'{nameof(unidadeCapacidade)}' não pode ser nulo nem vazio.", nameof(unidadeCapacidade));
+            }
+
+            try
+            {
+                using (NpgsqlConnection pgsqlConnection = new NpgsqlConnection(connString))
+                {
+                    //Abra a conexão com o PgSQL                  
+                    pgsqlConnection.Open();
+
+                    string cmdInserir = "INSERT INTO GESTPECAS( CODPECA, DESCRICAO, MODELO, MARCA, CAPACIDADE, UNIDADEMEDIDA) VALUES " +
+                        " (NEXTVAL('seq_pecas_id'), :DESCRICAO, :MODELO, :MARCA, :CAPACIDADE, :UNIDADEMEDIDA)";
+
+                    using (NpgsqlCommand pgsqlcommand = new NpgsqlCommand(cmdInserir, pgsqlConnection))
+                    {
+                        pgsqlcommand.Parameters.AddWithValue("DESCRICAO", nomePeca);
+                        pgsqlcommand.Parameters.AddWithValue("MODELO", modeloPeca);
+                        pgsqlcommand.Parameters.AddWithValue("MARCA", marcaPeca);
+                        pgsqlcommand.Parameters.AddWithValue("CAPACIDADE", capacidade);
+                        pgsqlcommand.Parameters.AddWithValue("UNIDADEMEDIDA", unidadeCapacidade);
+
+                        pgsqlcommand.ExecuteScalar();
+                    }
+
+                    pgsqlConnection.Close();
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+              
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

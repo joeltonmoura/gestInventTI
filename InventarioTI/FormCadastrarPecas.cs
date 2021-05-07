@@ -12,7 +12,14 @@ namespace InventarioTI
     public partial class FormCadastrarPecas : Form
     {
         private ConnectBd conn ;
-        private string queryPecasAll; 
+        private string queryPecasAll;
+        private string nomePeca;
+        private string marcaPeca;
+        private string modeloPeca;
+        private decimal capacidade;
+        private string unidadeCapacidade;
+
+
         public FormCadastrarPecas()
         {
             InitializeComponent();
@@ -99,19 +106,26 @@ namespace InventarioTI
 
 
         private void btnAddPeca_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(this.txtMarcaPeca.Text);
+        { 
 
             try
             {
-                queryPecasAll = @"SELECT * FROM ST_SELECTALLPECAS()";
-                dgvPecas.DataSource = null;
-                dgvPecas.DataSource = conn.executeDataTable(queryPecasAll);
+                nomePeca = txtNomePeca.Text;
+                marcaPeca = txtMarcaPeca.Text;
+                modeloPeca = txtModeloPeca.Text;
+                capacidade = txtCapacidade.Value;
+                unidadeCapacidade = cbUnidaeMedida.Text;
+
+
+                conn.InserirRegistros(nomePeca, marcaPeca, modeloPeca, capacidade, unidadeCapacidade);
+
+                MessageBox.Show("Peça inserido com sucesso");
+              
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: " + ex);
+                MessageBox.Show("Erro: " + ex );
             }
 
         }

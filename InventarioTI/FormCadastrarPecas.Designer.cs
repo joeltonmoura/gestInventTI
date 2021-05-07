@@ -29,7 +29,7 @@ namespace InventarioTI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNomePeca = new System.Windows.Forms.TextBox();
             this.txtModeloPeca = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -37,15 +37,15 @@ namespace InventarioTI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtCapacidade = new System.Windows.Forms.NumericUpDown();
+            this.cbUnidaeMedida = new System.Windows.Forms.ComboBox();
             this.dgvPecas = new System.Windows.Forms.DataGridView();
             this.btnAddPeca = new System.Windows.Forms.Button();
             this.btnEditarPeca = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.txtMarcaPeca = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCapacidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPecas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,18 +121,18 @@ namespace InventarioTI
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // numericUpDown1
+            // txtCapacidade
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(105, 114);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(99, 23);
-            this.numericUpDown1.TabIndex = 5;
+            this.txtCapacidade.Location = new System.Drawing.Point(105, 114);
+            this.txtCapacidade.Name = "txtCapacidade";
+            this.txtCapacidade.Size = new System.Drawing.Size(99, 23);
+            this.txtCapacidade.TabIndex = 5;
             // 
-            // comboBox1
+            // cbUnidaeMedida
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbUnidaeMedida.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbUnidaeMedida.FormattingEnabled = true;
+            this.cbUnidaeMedida.Items.AddRange(new object[] {
             "B",
             "kB",
             "MB",
@@ -142,11 +142,11 @@ namespace InventarioTI
             "EB",
             "ZB",
             "YB"});
-            this.comboBox1.Location = new System.Drawing.Point(210, 114);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(48, 23);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "B";
+            this.cbUnidaeMedida.Location = new System.Drawing.Point(210, 114);
+            this.cbUnidaeMedida.Name = "cbUnidaeMedida";
+            this.cbUnidaeMedida.Size = new System.Drawing.Size(48, 23);
+            this.cbUnidaeMedida.TabIndex = 6;
+            this.cbUnidaeMedida.Text = "B";
             // 
             // dgvPecas
             // 
@@ -158,14 +158,14 @@ namespace InventarioTI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPecas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPecas.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPecas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPecas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPecas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPecas.Location = new System.Drawing.Point(104, 143);
             this.dgvPecas.MultiSelect = false;
@@ -260,8 +260,8 @@ namespace InventarioTI
             this.Controls.Add(this.btnEditarPeca);
             this.Controls.Add(this.btnAddPeca);
             this.Controls.Add(this.dgvPecas);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.cbUnidaeMedida);
+            this.Controls.Add(this.txtCapacidade);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtModeloPeca);
             this.Controls.Add(this.txtNomePeca);
@@ -270,7 +270,7 @@ namespace InventarioTI
             this.Load += new System.EventHandler(this.FormCadastrarPecas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCapacidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPecas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -286,8 +286,8 @@ namespace InventarioTI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown txtCapacidade;
+        private System.Windows.Forms.ComboBox cbUnidaeMedida;
         private System.Windows.Forms.DataGridView dgvPecas;
         private System.Windows.Forms.Button btnAddPeca;
         private System.Windows.Forms.Button btnEditarPeca;
